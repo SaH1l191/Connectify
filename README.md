@@ -1,12 +1,16 @@
 # Threads Clone 
 
-## Live Preview
-> https://threads-0avq.onrender.com/
+
 
 
 
 ![image](https://github.com/user-attachments/assets/b98bea67-ff0a-4a90-8403-53baef6be563)
 ### The Threads Clone app is built using a robust and modern technology stack that includes MERN, Socket.io, and additional tools for enhanced user experience.
+
+## Live Preview
+> https://threads-0avq.onrender.com/
+
+
 
 Feature List:
 
