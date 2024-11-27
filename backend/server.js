@@ -8,6 +8,8 @@ import postRoutes from "./routes/postRoutes.js";
 import { v2 as cloudinary } from "cloudinary";
 import messageRoutes from './routes/messageRoutes.js'
 import {app,server} from './socket/socket.js'
+import job from "./cron/cron.js";
+
 dotenv.config();
 //we are using the imports as modules so we use import from this this / other wise would have used 
 // const " " = require('')
@@ -18,6 +20,7 @@ app.use(express.json({ limit: "50mb" })); // To parse JSON data in the req.body
 
 connectDB();
 // console.log('Mongo URI:', process.env.MONGO_URI);
+job.start();
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 
