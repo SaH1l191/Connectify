@@ -39,7 +39,9 @@ app.use(cookieParser());
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/messages", messageRoutes);
-
+app.get("/ping", (req, res) => {
+  res.status(200).send("pong");
+});
 // http://localhost:5000 => backend,frontend
 
 if (process.env.NODE_ENV === "production") {
