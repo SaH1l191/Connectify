@@ -3,20 +3,27 @@ import https from "https";
 
 const URL = "https://threads-0avq.onrender.com";
 
-const job = new cron.CronJob("*/14 * * * *", function () {
-	https
-		.get(URL, (res) => {
-			if (res.statusCode === 200) {
-				console.log("GET request sent successfully");
-			} else {
-				console.log("GET request failed", res.statusCode);
-			}
-		})
-		.on("error", (e) => {
-			console.error("Error while sending request", e);
-		});
+// const job = new cron.CronJob("*/14 * * * *", function () {
+// 	https
+// 		.get(URL, (res) => {
+// 			if (res.statusCode === 200) {
+// 				console.log("GET request sent successfully");
+// 			} else {
+// 				console.log("GET request failed", res.statusCode);
+// 			}
+// 		})
+// 		.on("error", (e) => {
+// 			console.error("Error while sending request", e);
+// 		});
+// });
+const job = cron.schedule("* * * * *", async () => {
+  try {
+    await axios.get("https://your-app-name.onrender.com/ping");
+    console.log("Pinged server to keep alive");
+  } catch (error) {
+    console.error("Error pinging server:", error.message);
+  }
 });
-
 export default job;
 
 // CRON JOB EXPLANATION:
